@@ -1,4 +1,4 @@
-import prisma from "../prismaClient";
+import prisma from "../prismaClient.js";
 
 export const createTask = async (req, res) => { // Creación de tarea nueva
   try {
