@@ -1,7 +1,6 @@
 import prisma from "../prismaClient";
 
-
-export const createTask = async (req, res) => {
+export const createTask = async (req, res) => { // Creación de tarea nueva
   try {
     const { title, description, state, userId } = req.body;
 
@@ -21,7 +20,7 @@ export const createTask = async (req, res) => {
   }
 };
 
-export const getAllTasks = async (req, res) => {
+export const getAllTasks = async (req, res) => { // Buscar todas las tareas existentes en la base de datos
   try {
     const tasks = await prisma.task.findMany();
     res.status(200).json(tasks);
@@ -31,7 +30,7 @@ export const getAllTasks = async (req, res) => {
   }
 };
 
-export const updateTasks = async (req, res) => {
+export const updateTasks = async (req, res) => { // Actualizar tarea especifica
   const { id } = req.params;
   const { title, description, state, userId } = req.body;
   const updateTasks = await prisma.task.update({
@@ -46,7 +45,7 @@ export const updateTasks = async (req, res) => {
   res.status(200).json(updateTasks)
 };
 
-export const deleteTasks = async(req,res) => {
+export const deleteTasks = async(req,res) => { // Eliminar una tarea existente 
     const {id} = req.params;
     await prisma.user.delete({
         where: {

@@ -1,8 +1,10 @@
 import express from "express";
+import authRoutes from "./post/auth/register.js";
 
 const app = express();
 const PORT = 3000;
 
+app.use("/auth", authRoutes);
 app.use(express.json());
 app.get("/", (req, res) => {
     res.send("Api running")
