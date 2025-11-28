@@ -30,3 +30,7 @@
 * Para saber quien es el usuario, permitir o negar acceso a rutas protegidas, mantiene una sesión sin usar cookies de servidor.
 
 * cuando el usuario inicie en el login se le envia un token al servidor y ya cada vez que el usuario genere una accion el server manda manda un token por cada accion por que el servidor ya sabe quien es el usuario.
+
+### Cómo implementamos JWT en este proyecto.
+
+- En este proyecto usamos JWT para manejar la autenticación. Cuando el usuario inicia sesión, verificamos su correo y contraseña y, si todo es correcto, generamos un token firmado con una clave secreta almacenada en el archivo .env. Ese token incluye el ID del usuario y una fecha de expiración, y luego se envía al cliente para que lo use en futuras peticiones. En las rutas protegidas simplemente revisamos que el token sea válido y no esté vencido, y así identificamos al usuario sin necesidad de manejar sesiones en el servidor.
